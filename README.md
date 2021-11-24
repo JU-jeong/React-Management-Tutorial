@@ -9,3 +9,11 @@
 
 - 주제선정이후 저희 조의 신변과 조원들의 상태에 예측할 수 없는 상태가 일어나면서 당초 예상했던 프로젝트에 차질이 빚어지기 시작했습니다. 시도해 볼 수 있는 기회는 프로젝트의 규모가 크지 않으며 시간을 절약하기 위한 최선의 기술 스택 선택이었습니다. 지난 두 번의 프로젝트에서 시간관리의 중요성을 깨달은 저희들은 JSP, Spring보다 빠르게 완성이 가능한 node.js를 선택하게 되었습니다. 비대면으로 상호 의사소통이 어려웠기 때문에 불필요한 렌더링과 리팩토링에 소요되는 과정을 최소화시키기 위해 virtual dom의 힘을 빌린 React를 클라이언트 구현에 활용하기로 하였습니다. 그 외 프로젝트 진행기간동안 깃허브를 통한 파일 공유, 깃 브랜치로 수행 과정별 프로세스를 저장한 안전한 환경 속에서 시행착오를 통한 개발이 가능하게 하였습니다. gitignore을 통해 데이터베이스 정보 등 클라이언트에게 직접적으로 드러나서는 안되는 정보를 보호하였습니다. 이후 AWS제공 EC2터미널이나 자체 플랫폼인 헤로쿠을 통한 배포과정또한 시도하였습니다.
 
+- 참고 사이트
+https://www.youtube.com/watch?v=_yEH9mczm3g&list=PLRx0vPvlEmdD1pSqKZiTihy5rplxecNpz / base structure
+https://mui.com/ marterial ui  
+https://ko.reactjs.org/docs/getting-started.html / react doc 
+https://nodejs.org/ko/docs/ node.js docs 
+https://www.udemy.com/user/nadongbin/ dongbinna devs 
+https://www.youtube.com/watch?v=NTDhBh1SdZ4 nomadcoder
+
