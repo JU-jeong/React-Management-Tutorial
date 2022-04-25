@@ -17,8 +17,4 @@ https://nodejs.org/ko/docs/ node.js docs
 https://www.udemy.com/user/nadongbin/ dongbinna devs 
 https://www.youtube.com/watch?v=NTDhBh1SdZ4 nomadcoder
 
-<video muted autoplay loop>
-      <source src="videos/Clouds.mp4" type="video/mp4">
-      <strong>Your browser does not support the video tag.</strong>
-    </video>
 
