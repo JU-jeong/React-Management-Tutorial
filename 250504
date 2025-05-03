@@ -1,0 +1,64 @@
+import {useState} from 'react';
+
+export default function App() {
+  const[todos, setTodos] = useState([]);
+  const[newTodo, setNewTodo] = useState("");
+  const [editingId, setEditingId] = useState(null);
+  const [editText, setEditText] = useState("");
+
+
+  const handleAddTodo = () => {
+    setTodos([...todos,{id:Date.now(), text:newTodo, isCompleted:false}]);
+    setNewTodo("");
+  }
+
+  const handleUpdateTodo = (id) => {
+    setTodos(
+      todos.map((todo) =>
+        todo.id === id ? { ...todo, text: editText } : todo
+      )
+    );
+    setEditingId(null);
+    setEditText("");
+  };
+
+  const handleCancelEdit = () => {
+    setEditingId(null);
+    setEditText("");
+  };
+
+  const handleDeleteTodo = (id) => {
+    setTodos(todos.filter((todo) => todo.id !== id));
+  }
+
+  const toggleComplete = (id) => {
+    setTodos(
+      todos.map((todo) => 
+        todo.id == id ? {...todo, isCompleted: true} : todo
+      )
+    )
+  }
+
+  return (
+    <div>
+        <h1 className = "text-2xl">Todo List</h1>
+        <div>
+            <input
+              type = "text"
+              value = {newTodo}
+              onChange={(e) => setNewTodo(editText.target.value)}
+              className = "w-full py-2 px3 text-gray-700 border-1 border-gray-500"
+              />
+              <button onClick = {handleAddTodo}>추가</button>
+        <div>
+
+    <ul>
+        {todos.map((todo)=>)
+            <li key = {todo.id}>
+            <input
+                type = "checkbox"
+                checked = {todo.isCompleted}
+                onChange + {() => toggleComplete(todo.id)}
+        />
+        }
+  )
