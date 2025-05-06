@@ -1,0 +1,68 @@
+import { useEffect, useState } from "react";
+
+export default function App() {
+  const [todos, setTodos] = useState([]);
+  const [newTodo, setNewTodo] = useState("");
+
+  const handleAddTodo = () => {
+    setTodos([...todos, { id: Date.now(), text: newTodo, isCompleted: false }]);
+    setNewTodo("");
+  };
+
+  useEffect(() => {
+    const todoString = localStorage.getItem("todo");
+    if(todoString){
+      const todo = JSON.parse(todoString);
+      setTodos(todo);
+    }
+  },[]);
+
+  useEffect(() => {
+    if(todos.length > 0){
+      localStorage.setItem("todo", JSON.stringify(todos));
+    }
+  },[todos]);
+  
+
+  const handleDeleteTodo = (id) => {
+    setTodos(todos.filter((todo) => todo.id !== id));
+  };
+
+  const toggleComplete = (id) => {
+    setTodos(
+      todos.map((todo) =>
+        todo.id == id ? { ...todo, isCompleted: true } : todo
+      )
+    );
+  };
+
+  return (
+    <div>
+      <h1 className="text-2xl">Todo List</h1>
+      <div>
+        <input
+          type="text"
+          value={newTodo}
+          onChange={(e) => setNewTodo(e.target.value)}
+          className="w-full py-2 px-3 text-gray-700 border-1 border-gray-500"
+        />
+        <button onClick={handleAddTodo}>추가</button>
+      </div>
+      <ul>
+        {todos.map((todo) => {
+          return (
+            <li key={todo.id}>
+              <input
+                type="checkbox"
+                checked={todo.isCompleted}
+                onClick={() => toggleComplete(todo.id)}
+              />
+              <span>{todo.text}</span>
+              <button onClick={() => handleDeleteTodo(todo.id)}>삭제</button>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  );
+}
